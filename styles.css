@@ -1,0 +1,277 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Neue', cursive;
+    font-weight: 700;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+    font-size: 18px;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #ff9933;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    animation: fadeInDown 1s ease-out; /* Fade in animation */
+} 
+
+header img {
+    max-width: 200px;
+}
+
+header h1 {
+    margin-top: 10px;
+    font-size: 54px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+} 
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px
+}
+
+section {
+    padding: 40px 0;
+    animation: fadeInUp 1s ease-out; /* Fade in animation */
+}
+
+section h2 {
+    margin-bottom: 20px;
+    font-size: 42px;
+    text-align: center;
+}
+
+section p {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #ff9933;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    animation: fadeInUp 1s ease-out; /* Fade in animation */
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Roadmap Styles */
+.roadmap-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.phase {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out; /* Fade in animation */
+}
+
+.phase h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.phase ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.phase ul li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 18px;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animated background */
+body {
+    
+}
+
+.sandwiches {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensure sandwiches don't interfere with user interactions */
+}
+
+.sandwich {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: url('./assets/sandwich.png') no-repeat center center/contain;
+    animation: fall 5s linear infinite;
+}
+
+/* Animation keyframes */
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Comic Neue', cursive; /* Use 'Comic Neue' font for all headings (i wanted to use comic sans but idk its microsoft*/
+    font-weight: 800; /* Make all headings bold */
+  }
+  .header-content {
+    display: flex;
+    align-items: center;
+}
+
+.header-content .text {
+    flex: 1;
+}
+
+.header-content .image {
+    margin-left: 20px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-content .image {
+        margin-top: 20px;
+        margin-left: 0;
+    }
+}
+
+.faucet {
+    text-align: center;
+  }
+  
+.center {
+    display: flex;
+    justify-content: center;
+}
+  
+button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+  
+button:hover {
+    background-color: #45a049;
+}
+  
+.hidden {
+    display: none;
+}
+
+.comic-neue-light {
+    font-family: "Comic Neue", cursive;
+    font-weight: 300;
+    font-style: normal;
+}
+  
+.comic-neue-regular {
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.comic-neue-bold {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+  
+.comic-neue-light-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 300;
+    font-style: italic;
+}
+  
+.comic-neue-regular-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: italic;
+}
+  
+.comic-neue-bold-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: italic;
+}
+  

