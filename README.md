@@ -1,2 +1,0 @@
-# SandwichPlays.github.io
-yay
