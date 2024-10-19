@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Text with Bevel</title>
+    <title>chiren</title>
     <style>
         body { margin: 0; }
         canvas { display: block; }
@@ -29,7 +29,7 @@
             // Load the font and create the 3D text
             const loader = new THREE.FontLoader();
             loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
-                const geometry = new THREE.TextGeometry('CHIREN', {
+                const geometry = new THREE.TextGeometry('chiren', {
                     font: font,
                     size: 1,
                     height: 0.2,
@@ -40,7 +40,7 @@
                     bevelSegments: 3
                 });
 
-                const material = new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true });
+                const material = new THREE.MeshPhongMaterial({ color: 0xA1FF00, flatShading: true });
                 textMesh = new THREE.Mesh(geometry, material);
                 textMesh.geometry.center();  // Center the text
                 scene.add(textMesh);
