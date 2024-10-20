@@ -132,31 +132,6 @@ function rotateMode() {
     rotateModel = !rotateModel
 }
 
-document.getElementById('lightDark').addEventListener('click', lightDark);
-
-function lightDark() {
-    lightMode = !lightMode
-    if (lightMode === true) {
-        document.getElementById("kofi").style.color = "white";
-        document.body.style.backgroundColor = 'black';
-
-        backgroundColor = 'black'
-        ASCIIColor = 'white'
-
-        effect.domElement.style.color = ASCIIColor;
-        effect.domElement.style.backgroundColor = backgroundColor;
-    } else {
-        document.getElementById("kofi").style.color = "black";
-        document.body.style.backgroundColor = 'white';
-
-        backgroundColor = 'white'
-        ASCIIColor = 'black'
-
-        effect.domElement.style.color = ASCIIColor;
-        effect.domElement.style.backgroundColor = backgroundColor;
-    }
-}
-
 window.addEventListener('resize', onWindowResize);
 
 function onWindowResize() {
