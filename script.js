@@ -1,144 +1,64 @@
-import './style.css'
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js'
-import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
-import html2canvas from 'html2canvas';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 
-//LightMode
-let lightMode = true
+// Basic setup
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x000000);
 
-//Create a clock for rotation
-const clock = new THREE.Clock()
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 5;
 
-// Set rotate boolean variable
-let rotateModel = false
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
-//Ugh, don't ask about this stuff
-var userUploaded = false
-let controls
+// Lights
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambientLight);
 
-// Creates empty mesh container
-const myMesh = new THREE.Mesh();
+const pointLight = new THREE.PointLight(0xffffff, 1);
+pointLight.position.set(10, 10, 10);
+scene.add(pointLight);
 
-// Scene
-const scene = new THREE.Scene()
-scene.background = new THREE.Color(0, 0, 0);
+// Model loader
+const stlLoader = new STLLoader();
+const material = new THREE.MeshPhongMaterial({ color: 0xffffff });
+let modelMesh;
 
-//Lights
-const pointLight1 = new THREE.PointLight(0xffffff, 1, 0, 0);
-pointLight1.position.set(100, 100, 400);
-scene.add(pointLight1);
-
-const pointLight2 = new THREE.PointLight(0xffffff, .5);
-pointLight2.position.set(-500, 100, -400);
-scene.add(pointLight2);
-
-// Parameters
-const stlLoader = new STLLoader()
-
-//Material
-const material = new THREE.MeshStandardMaterial()
-material.flatShading = true
-material.side = THREE.DoubleSide;
-
-// Sizes
-const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight
-}
-
-// Camera
-const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 2000)
-
-// Renderer
-const renderer = new THREE.WebGLRenderer()
-
-let effect;
-
-let characters = ' .:-+*=%@#'
-const effectSize = { amount: .205 }
-let backgroundColor = 'black'
-let ASCIIColor = 'white'
-
-function createEffect() {
-    effect = new AsciiEffect(renderer, characters, { invert: true, resolution: effectSize.amount });
-    effect.setSize(sizes.width, sizes.height);
-    effect.domElement.style.color = ASCIIColor;
-    effect.domElement.style.backgroundColor = backgroundColor;
-}
-
-createEffect()
-
-document.body.appendChild(effect.domElement)
-
-document.getElementById("ascii").style.whiteSpace = "prewrap"
-
+// Load the model
 stlLoader.load(
-    './models/test1.stl',
-    function (geometry) {
-
-        myMesh.material = material;
-        myMesh.geometry = geometry;
-
-        var tempGeometry = new THREE.Mesh(geometry, material)
-        myMesh.position.copy = (tempGeometry.position)
-
-        geometry.computeVertexNormals();
-        myMesh.geometry.center()
-
-        myMesh.rotation.x = -90 * Math.PI / 180;
-
-        myMesh.geometry.computeBoundingBox();
-        var bbox = myMesh.geometry.boundingBox;
-
-        myMesh.position.y = ((bbox.max.z - bbox.min.z) / 5)
-
-        camera.position.x = ((bbox.max.x * 4));
-        camera.position.y = ((bbox.max.y));
-        camera.position.z = ((bbox.max.z * 3));
-
-        scene.add(myMesh);
-
-
-        controls = new OrbitControls(camera, effect.domElement)
-
-
-        function tick() {
-            if (rotateModel == true) {
-                const elapsedTime = clock.getElapsedTime()
-                myMesh.rotation.z = (elapsedTime) / 3
-                render()
-                window.requestAnimationFrame(tick)
-            } else {
-                render()
-                window.requestAnimationFrame(tick)
-            }
-        }
-
-        function render() {
-            effect.render(scene, camera);
-        }
-
-        tick()
+    './models/your_model.stl', // Replace with the path to your model
+    (geometry) => {
+        modelMesh = new THREE.Mesh(geometry, material);
+        modelMesh.geometry.center(); // Center the geometry
+        scene.add(modelMesh);
     }
-)
+);
 
+// Orbit controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.1;
 
+// Animation loop
+function animate() {
+    requestAnimationFrame(animate);
 
-document.getElementById('rotateButton').addEventListener('click', rotateMode);
+    // Rotate the model
+    if (modelMesh) {
+        modelMesh.rotation.y += 0.01; // Adjust speed and axis as needed
+    }
 
-function rotateMode() {
-    rotateModel = !rotateModel
+    controls.update();
+    renderer.render(scene, camera);
 }
 
-window.addEventListener('resize', onWindowResize);
+animate();
 
-function onWindowResize() {
+// Resize handler
+window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-
     renderer.setSize(window.innerWidth, window.innerHeight);
-    effect.setSize(window.innerWidth, window.innerHeight);
-}
-
+});
