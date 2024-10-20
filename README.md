@@ -1,1 +1,1 @@
-https://chiren.lolikami.top/
+Ohio gyatt rizzler
