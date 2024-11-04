@@ -3,70 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>skibidi</title>
-    <style>
-        body { margin: 0; }
-        canvas { display: block; }
-    </style>
-    <link rel="icon" href="./chiren.ico">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://threejs.org/examples/js/loaders/FontLoader.js"></script>
-    <script src="https://threejs.org/examples/fonts/helvetiker_regular.typeface.json"></script>
-    <script>
-        let scene, camera, renderer, textMesh;
-
-        function init() {
-            // Create scene, camera, and renderer
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 5;
-
-            renderer = new THREE.WebGLRenderer();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.body.appendChild(renderer.domElement);
-
-            // Load the font and create the 3D text
-            const loader = new THREE.FontLoader();
-            loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
-                const geometry = new THREE.TextGeometry('skibidi', {
-                    font: font,
-                    size: 1,
-                    height: 0.2,
-                    bevelEnabled: true,
-                    bevelThickness: 0.05,
-                    bevelSize: 0.05,
-                    bevelOffset: 0,
-                    bevelSegments: 3
-                });
-
-                const material = new THREE.MeshPhongMaterial({ color: 0xA1FF00, flatShading: true });
-                textMesh = new THREE.Mesh(geometry, material);
-                textMesh.geometry.center();  // Center the text
-                scene.add(textMesh);
-            });
-
-            // Add lights
-            const ambientLight = new THREE.AmbientLight(0x404040);
-            scene.add(ambientLight);
-            const pointLight = new THREE.PointLight(0xffffff);
-            pointLight.position.set(10, 10, 10);
-            scene.add(pointLight);
-
-            animate();
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            if (textMesh) {
-                textMesh.rotation.x += 0.01;  // Rotate on X-axis
-                textMesh.rotation.y += 0.01;  // Rotate on Y-axis
-            }
-            renderer.render(scene, camera);
-        }
-
-        window.onload = init;
-    </script>
+    <div class="container">
+        <div class="button" onclick="navigateTo('page1.html')">
+            <div class="button-content">
+                <p>Button 1</p>
+            </div>
+        </div>
+        <div class="button" onclick="navigateTo('page2.html')">
+            <div class="button-content">
+                <p>Button 2</p>
+            </div>
+        </div>
+        <div class="button" onclick="navigateTo('page3.html')">
+            <div class="button-content">
+                <p>Button 3</p>
+            </div>
+        </div>
+        <div class="button" onclick="navigateTo('page4.html')">
+            <div class="button-content">
+                <p>Button 4</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
