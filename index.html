@@ -3,32 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Button Grid with Navigation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>lolikami.top</h1>
     <div class="container">
-        <div class="button" onclick="navigateTo('./chiren.html')">
-            <div class="button-content">
-                <p>Button 1</p>
+        <div class="button-container">
+            <div class="button" onclick="navigateTo('./chiren')">
+                <div class="image" style="background-image: url('./chiren.png');"></div>
             </div>
+            <p class="text">chiren</p>
         </div>
-        <div class="button" onclick="navigateTo('./nghhrt.html')">
-            <div class="button-content">
-                <p>Button 2</p>
+    
+        <div class="button-container">
+            <div class="button" onclick="navigateTo('./nghhrt')">
+                <div class="image" style="background-image: url('./chiren.png');"></div>
             </div>
+            <p class="text">nak</p>
         </div>
-        <div class="button" onclick="navigateTo('./skibidi.html')">
-            <div class="button-content">
-                <p>Button 3</p>
+    
+        <div class="button-container">
+            <div class="button" onclick="navigateTo('./skibidi')">
+                <div class="image" style="background-image: url('./chiren.png');"></div>
             </div>
+            <p class="text">skibidi</p>
         </div>
-        <div class="button" onclick="navigateTo('./chiren.html')">
-            <div class="button-content">
-                <p>Button 4</p>
+    
+        <div class="button-container">
+            <div class="button" onclick="navigateTo('./')">
+                <div class="image" style="background-image: url('./chiren.png');"></div>
             </div>
+            <p class="text">Page 4</p>
         </div>
-    </div>
+    </div>    
     <script src="script.js"></script>
 </body>
 </html>
