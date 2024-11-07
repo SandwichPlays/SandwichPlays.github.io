@@ -8,7 +8,7 @@
         body { margin: 0; }
         canvas { display: block; }
     </style>
-    <link rel="icon" href="./chiren.ico">
+    <link rel="icon" href="./skibidi.ico">
 </head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -41,7 +41,7 @@
                     bevelSegments: 3
                 });
 
-                const material = new THREE.MeshPhongMaterial({ color: 0xA1FF00, flatShading: true });
+                const material = new THREE.MeshPhongMaterial({ color: 0xAEA04B, flatShading: true });
                 textMesh = new THREE.Mesh(geometry, material);
                 textMesh.geometry.center();  // Center the text
                 scene.add(textMesh);
