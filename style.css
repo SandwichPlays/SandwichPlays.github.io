@@ -40,6 +40,10 @@ h1 {
     overflow: hidden; /* Ensures no overflow */
     cursor: pointer;
     transition: transform 0.3s; /* Tween effect for scaling */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    text-align: center; /* Center the text inside */
 }
 
 .button {border-radius: 20px;}
@@ -53,7 +57,7 @@ h1 {
     height: 100%; /* Full height */
     background-size: cover;
     background-position: center;
-    filter: brightness(0.7) blur(2px);
+    filter: brightness(0.7) blur(4px);
     transition: filter 0.3s;
 }
 
@@ -67,3 +71,8 @@ h1 {
     color: black; /* Set text color */
     text-align: center; /* Center text */
 }
+
+.center {
+    text-align: center;
+    font-size: 3rem;
+  }

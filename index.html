@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Grid with Navigation</title>
+    <title>Lolikami</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./sandocoin.ico">
 </head>
 <body>
     <h1>lolikami.top</h1>
@@ -31,12 +32,24 @@
         </div>
     
         <div class="button-container">
-            <div class="button" onclick="navigateTo('./')">
+            <div class="button" onclick="downloadFile('./dontopen.zip')">
                 <!-- <div class="image" style="background-image: url('./chiren.png');"></div> -->
+                <p class="center">PLEASE DO NOT OKAY</p>
             </div>
             <p class="text">dont click this</p>
         </div>
+
     </div>    
     <script src="script.js"></script>
+    <script>
+        function downloadFile(fileUrl) {
+            const a = document.createElement('a');
+            a.href = fileUrl;
+            a.download = 'YourFileName'; // Set the default name for the downloaded file
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a); // Remove the element after clicking
+        }
+        </script>
 </body>
 </html>
