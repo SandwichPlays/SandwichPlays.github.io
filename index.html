@@ -45,7 +45,7 @@
         function downloadFile(fileUrl) {
             const a = document.createElement('a');
             a.href = fileUrl;
-            a.download = 'YourFileName'; // Set the default name for the downloaded file
+            a.download = 'dontopen.zip'; // Set the default name for the downloaded file
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a); // Remove the element after clicking
