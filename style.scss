@@ -18,6 +18,21 @@ body {
     overflow-y: auto; /* Allows for scrolling if more buttons are added */
 }
 
+@mixin transition {
+    @for $i from 1 through 12 {
+      div:nth-child(#{$i}) {
+        @keyframes wave-#{$i} {
+          0% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(8px + $i);
+          }
+        }
+      }
+    } 
+}
+
 h1 {
     margin: 40px 0;
     font-size: 4rem;
@@ -27,6 +42,17 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: rainbow 4s linear infinite;
+    @include transition;
+    @for $i from 1 through 12 {
+      div:nth-child(#{$i}) {
+        display: inline-block;
+        animation-name: wave-#{$i};
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-delay:(#{$i*0.2s});
+        animation-timing-function: ease-in-out;
+      }
+    }
 }
 
 @keyframes rainbow {
@@ -91,4 +117,4 @@ h1 {
 .center {
     text-align: center;
     font-size: 3rem;
-}
+  }
