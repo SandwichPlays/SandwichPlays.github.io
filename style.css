@@ -1,8 +1,13 @@
+@font-face {
+    font-family: 'ComicSans';
+    src: url('./fontslmao/ComicSans.ttf') format('truetype');
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    font-family: 'ComicSans', 'Comic Sans MS', 'Comic Sans', cursive;
 }
 
 body {
@@ -16,7 +21,18 @@ body {
 h1 {
     margin: 40px 0;
     font-size: 4rem;
-    color: #333;
+    background: radial-gradient(circle at 100%, red, orange , yellow , green , blue , violet, red);
+    background-size: 200%; /* Larger size creates the gradient movement */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 4s linear infinite;
+}
+
+@keyframes rainbow {
+    to {
+      background-position: 200% center;
+    }
 }
 
 .container {
