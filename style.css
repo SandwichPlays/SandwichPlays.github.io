@@ -88,6 +88,23 @@ h1 {
     text-align: center; /* Center text */
 }
 
+@keyframes wave {
+    0% { transform: translateY(0); }
+    12.5% { transform: translateY(3px); }
+    25% { transform: translateY(6); }
+    37.5% { transform: translateY(3px); }
+    50% { transform: translateY(0); }
+    62.5% { transform: translateY(-3px); }
+    75% { transform: translateY(-6px); }
+    87.5% { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+}
+  
+.letter {
+    display: inline-block;
+    animation: wave 0.8s infinite;
+}
+
 .center {
     text-align: center;
     font-size: 3rem;
