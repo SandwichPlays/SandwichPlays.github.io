@@ -125,3 +125,14 @@ h1 {
         font-size: 2rem; /* Further reduce text font size */
     }
 }
+
+/* Disable blur for touchscreens */
+@media (hover: none) {
+    .image {
+        filter: brightness(1); /* Remove blur for touch devices */
+    }
+
+    .button:hover .image {
+        filter: brightness(1); /* Keep the same effect as no hover is supported */
+    }
+}
