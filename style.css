@@ -109,3 +109,19 @@ h1 {
     text-align: center;
     font-size: 3rem;
 }
+
+
+/* Responsive Design for Mobile Phones */
+@media (max-width: 480px) {
+    .button {
+        width: 220px; /* Further reduce button width */
+        height: 132px; /* Further reduce button height */
+    }
+
+    .text {
+        font-size: 0.9rem; /* Further reduce text font size */
+    }
+    .center {
+        font-size: 2rem; /* Further reduce text font size */
+    }
+}
