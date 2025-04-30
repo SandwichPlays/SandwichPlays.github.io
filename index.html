@@ -16,7 +16,6 @@
         <div class="sandwiches"></div>
         <script src="animation.js"></script>
         <div class="page-border">
-            <!-- <h1>lolikami.top</h1> -->
             <div class="logo">
                 <img src="./media/l.gif" alt="L">
                 <img src="./media/o.gif" alt="O">
@@ -29,7 +28,6 @@
             </div>
 
             <div class="container">
-
                 <div class="button-container">
                     <div class="button" onclick="navigateTo('./chiren')">
                         <img class="image" src="./media/chiren.png" data-still="./media/chiren.png"
@@ -56,10 +54,8 @@
 
                 <div class="button-container">
                     <div class="button" onclick="downloadFile('./zipbomb.zip')">
-                        <!-- <div class="image" style="background-image: url('./zipbomb.png');"></div> -->
                         <img class="image" src="./media/zipbomb.png" data-still="./media/zipbomb.png"
                             data-gif="./media/zipbomb.gif" alt="zipbomb">
-                        <!-- <p class="center">Cool zipbomb idk tbh</p> -->
                     </div>
                     <p class="text">zipbomb</p>
                 </div>
@@ -72,20 +68,18 @@
                     </div>
                     <p class="text">MyAnimeList</p>
                 </div>
-
             </div>
             <script src="script.js"></script>
             <script>
                 function downloadFile(fileUrl) {
                     const a = document.createElement('a');
                     a.href = fileUrl;
-                    a.download = 'zipbomb.zip'; // Set the default name for the downloaded file
+                    a.download = 'zipbomb.zip';
                     document.body.appendChild(a);
                     a.click();
-                    document.body.removeChild(a); // Remove the element after clicking
+                    document.body.removeChild(a);
                 }
             </script>
-
         </div>
     </div>
 </body>

@@ -23,16 +23,15 @@ const assetsToPreload = [
     './media/zipbomb.png',
     './media/zipbomb.gif',
     './media/MAL.jpg',
-    './media/teto.gif', 
-    // Add more paths as needed
-  ];
-  
+    './media/teto.gif'
+];
+
 function preloadImage(url) {
     return new Promise((resolve) => {
-      const img = new Image();
-      img.onload = resolve;
-      img.onerror = resolve; // resolve on error to avoid blocking
-      img.src = url;
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = resolve;
+        img.src = url;
     });
 }
 
@@ -70,9 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener('load', async () => {
     await Promise.all(assetsToPreload.map(preloadImage));
     if (typeof window.createSandwichRain === 'function') {
-      window.createSandwichRain();
+        window.createSandwichRain();
     }
     document.body.classList.remove('loading');
 });
-  
+
 console.log('✅ Reached end of script');
