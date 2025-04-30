@@ -4,85 +4,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lolikami</title> 
+    <title>Lolikami</title>
     <link rel="icon" href="./media/sandocoin.ico">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <div class="sandwiches"></div>
-    <script src="animation.js"></script>
-    <div class="page-border">
-        <!-- <h1>lolikami.top</h1> -->
-        <div class="logo">
-            <img src="./media/l.gif" alt="L">
-            <img src="./media/o.gif" alt="O">
-            <img src="./media/l.gif" alt="L">
-            <img src="./media/i.gif" alt="I">
-            <img src="./media/k.gif" alt="K">
-            <img src="./media/a.gif" alt="A">
-            <img src="./media/m.gif" alt="M">
-            <img src="./media/i.gif" alt="I">
+<body class="loading">
+    <div id="loader">Loading...</div>
+    <div id="page-content">
+        <div class="sandwiches"></div>
+        <script src="animation.js"></script>
+        <div class="page-border">
+            <!-- <h1>lolikami.top</h1> -->
+            <div class="logo">
+                <img src="./media/l.gif" alt="L">
+                <img src="./media/o.gif" alt="O">
+                <img src="./media/l.gif" alt="L">
+                <img src="./media/i.gif" alt="I">
+                <img src="./media/k.gif" alt="K">
+                <img src="./media/a.gif" alt="A">
+                <img src="./media/m.gif" alt="M">
+                <img src="./media/i.gif" alt="I">
+            </div>
+
+            <div class="container">
+
+                <div class="button-container">
+                    <div class="button" onclick="navigateTo('./chiren')">
+                        <img class="image" src="./media/chiren.png" data-still="./media/chiren.png"
+                            data-gif="./media/chiren.gif" alt="chiren">
+                    </div>
+                    <p class="text">chiren</p>
+                </div>
+
+                <div class="button-container">
+                    <div class="button" onclick="navigateTo('./nghhrt')">
+                        <img class="image" src="./media/nak.png" data-still="./media/nak.png" data-gif="./media/nak.gif"
+                            alt="nak">
+                    </div>
+                    <p class="text">nak</p>
+                </div>
+
+                <div class="button-container">
+                    <div class="button" onclick="navigateTo('./skibidi')">
+                        <img class="image" src="./media/skibidi.png" data-still="./media/skibidi.png"
+                            data-gif="./media/skibidi.gif" alt="skibidi">
+                    </div>
+                    <p class="text">skibidi</p>
+                </div>
+
+                <div class="button-container">
+                    <div class="button" onclick="downloadFile('./zipbomb.zip')">
+                        <!-- <div class="image" style="background-image: url('./zipbomb.png');"></div> -->
+                        <img class="image" src="./media/zipbomb.png" data-still="./media/zipbomb.png"
+                            data-gif="./media/zipbomb.gif" alt="zipbomb">
+                        <!-- <p class="center">Cool zipbomb idk tbh</p> -->
+                    </div>
+                    <p class="text">zipbomb</p>
+                </div>
+
+                <div class="button-container">
+                    <div class="button"
+                        onclick="window.location.href='https://myanimelist.net/animelist/SandoSensei?status=7&order=4&order2=0';">
+                        <img class="image" src="./media/MAL.jpg" data-still="./media/MAL.jpg"
+                            data-gif="./media/teto.gif" alt="teto">
+                    </div>
+                    <p class="text">MyAnimeList</p>
+                </div>
+
+            </div>
+            <script src="script.js"></script>
+            <script>
+                function downloadFile(fileUrl) {
+                    const a = document.createElement('a');
+                    a.href = fileUrl;
+                    a.download = 'zipbomb.zip'; // Set the default name for the downloaded file
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a); // Remove the element after clicking
+                }
+            </script>
+
         </div>
-
-        <div class="container">
-
-            <div class="button-container">
-                <div class="button" onclick="navigateTo('./chiren')">
-                    <img class="image" src="./media/chiren.png" data-still="./media/chiren.png"
-                        data-gif="./media/chiren.gif" alt="chiren">
-                </div>
-                <p class="text">chiren</p>
-            </div>
-
-            <div class="button-container">
-                <div class="button" onclick="navigateTo('./nghhrt')">
-                    <img class="image" src="./media/nak.png" data-still="./media/nak.png" data-gif="./media/nak.gif"
-                        alt="nak">
-                </div>
-                <p class="text">nak</p>
-            </div>
-
-            <div class="button-container">
-                <div class="button" onclick="navigateTo('./skibidi')">
-                    <img class="image" src="./media/skibidi.png" data-still="./media/skibidi.png"
-                        data-gif="./media/skibidi.gif" alt="skibidi">
-                </div>
-                <p class="text">skibidi</p>
-            </div>
-
-            <div class="button-container">
-                <div class="button" onclick="downloadFile('./zipbomb.zip')">
-                    <!-- <div class="image" style="background-image: url('./zipbomb.png');"></div> -->
-                    <img class="image" src="./media/zipbomb.png" data-still="./media/zipbomb.png"
-                        data-gif="./media/zipbomb.gif" alt="zipbomb">
-                    <!-- <p class="center">Cool zipbomb idk tbh</p> -->
-                </div>
-                <p class="text">zipbomb</p>
-            </div>
-
-            <div class="button-container">
-                <div class="button" onclick="window.location.href='https://myanimelist.net/animelist/SandoSensei?status=7&order=4&order2=0';">
-                    <img class="image" src="./media/MAL.jpg" data-still="./media/MAL.jpg" data-gif="./media/teto.gif"
-                        alt="teto">
-                </div>
-                <p class="text">MyAnimeList</p>
-            </div>
-
-        </div>
-        <script src="script.js"></script>
-        <script>
-            function downloadFile(fileUrl) {
-                const a = document.createElement('a');
-                a.href = fileUrl;
-                a.download = 'zipbomb.zip'; // Set the default name for the downloaded file
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a); // Remove the element after clicking
-            }
-        </script>
-
     </div>
 </body>
 

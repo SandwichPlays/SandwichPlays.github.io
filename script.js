@@ -15,7 +15,7 @@ const assetsToPreload = [
     './media/chiren.ico',
     './media/chiren.gif',
     './media/nak.png',
-    './media/nak.ico',
+    './media/nghhrt.ico',
     './media/nak.gif',
     './media/skibidi.png',
     './media/skibidi.ico',
@@ -68,8 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener('load', async () => {
-    await Promise.all(assetsToPreload.map(preloadImage)); // wait for images
-    startSandwichRain();                                  // start animation
-    document.body.classList.remove('loading');            // reveal content
-  });
+    await Promise.all(assetsToPreload.map(preloadImage));
+    if (typeof window.createSandwichRain === 'function') {
+      window.createSandwichRain();
+    }
+    document.body.classList.remove('loading');
+});
   
+console.log('✅ Reached end of script');
