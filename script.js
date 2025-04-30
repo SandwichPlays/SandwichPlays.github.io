@@ -2,51 +2,33 @@ function navigateTo(url) {
     window.location.href = url;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    const textElements = document.querySelectorAll('.text'); // Get all elements with the class 'wave-text'
+document.addEventListener("DOMContentLoaded", () => {
+    const textElements = document.querySelectorAll('.text');
 
     textElements.forEach((textElement) => {
         const text = textElement.textContent;
-        textElement.innerHTML = ''; // Clear the existing text
-
-        text.split('').forEach((char, index) => {
-            const span = document.createElement('span');
-            span.textContent = char;
-            span.classList.add('letter');
-            span.style.animationDelay = `${index * 0.07}s`; // Stagger the animation
-            textElement.appendChild(span);
-        });
+        textElement.innerHTML = text
+            .split('')
+            .map((char, index) => `<span class="letter" style="animation-delay: ${index * 0.07}s">${char}</span>`)
+            .join('');
     });
 
-
-    function isTouchDevice() {
-        return (
-            'ontouchstart' in window ||
-            navigator.maxTouchPoints > 0 ||
-            navigator.msMaxTouchPoints > 0
-        );
-    }
+    const isTouchDevice = () =>
+        'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 
     const imageElements = document.querySelectorAll('.image');
 
     imageElements.forEach((imageElement) => {
-        const stillImage = imageElement.getAttribute('data-still');
-        const gifImage = imageElement.getAttribute('data-gif');
+        const stillImage = imageElement.dataset.still;
+        const gifImage = imageElement.dataset.gif;
 
-        if (!stillImage || !gifImage) return; // skip if data missing
+        if (!stillImage || !gifImage) return;
 
         if (isTouchDevice()) {
-            // On mobile/touch devices: autoplay GIF
             imageElement.src = gifImage;
         } else {
-            // On desktop: hover behavior
-            imageElement.addEventListener('mouseenter', () => {
-                imageElement.src = gifImage;
-            });
-
-            imageElement.addEventListener('mouseleave', () => {
-                imageElement.src = stillImage;
-            });
+            imageElement.addEventListener('mouseenter', () => (imageElement.src = gifImage));
+            imageElement.addEventListener('mouseleave', () => (imageElement.src = stillImage));
         }
     });
 });
