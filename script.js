@@ -2,6 +2,40 @@ function navigateTo(url) {
     window.location.href = url;
 }
 
+const assetsToPreload = [
+    './media/a.gif',
+    './media/i.gif',
+    './media/k.gif',
+    './media/l.gif',
+    './media/m.gif',
+    './media/o.gif',
+    './media/sandwich.png',
+    './media/sandocoin.ico',
+    './media/chiren.png',
+    './media/chiren.ico',
+    './media/chiren.gif',
+    './media/nak.png',
+    './media/nak.ico',
+    './media/nak.gif',
+    './media/skibidi.png',
+    './media/skibidi.ico',
+    './media/skibidi.gif',
+    './media/zipbomb.png',
+    './media/zipbomb.gif',
+    './media/MAL.jpg',
+    './media/teto.gif', 
+    // Add more paths as needed
+  ];
+  
+function preloadImage(url) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = resolve;
+      img.onerror = resolve; // resolve on error to avoid blocking
+      img.src = url;
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const textElements = document.querySelectorAll('.text');
 
@@ -32,3 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+window.addEventListener('load', async () => {
+    await Promise.all(assetsToPreload.map(preloadImage)); // wait for images
+    startSandwichRain();                                  // start animation
+    document.body.classList.remove('loading');            // reveal content
+  });
+  
